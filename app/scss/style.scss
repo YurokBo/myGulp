@@ -1,0 +1,7 @@
+@import "../../node_modules/normalize.css/normalize";
+.test{
+  background-color: blue;
+  &__color{
+    color: aquamarine;
+  }
+}

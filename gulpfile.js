@@ -5,7 +5,9 @@ let gulp = require('gulp'),
     concat = require('gulp-concat'),
     rename = require("gulp-rename"),
     del = require('del'),
-    autoprefixer = require('gulp-autoprefixer');
+    autoprefixer = require('gulp-autoprefixer'),
+    fileinclude = require('gulp-file-include');
+
 
 gulp.task('clean', async function () {
     del.sync('dist/')
@@ -37,6 +39,7 @@ gulp.task('css', function () {
 
 gulp.task('html', function () {
     return gulp.src('app/*.html')
+        .pipe(fileinclude())
         .pipe(browserSync.reload({stream: true}));
 });
 

@@ -9,9 +9,11 @@
   "author": "Yuriy Bondaryuk",
   "license": "ISC",
   "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.13.0",
     "animate.css": "^3.7.2",
     "browser-sync": "^2.26.7",
     "del": "^5.1.0",
+    "font-awesome": "^4.7.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^7.0.1",
     "gulp-concat": "^2.6.1",

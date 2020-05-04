@@ -23,14 +23,16 @@ gulp.task('scss', function () {
 });
 
 gulp.task('css', function () {
-return gulp.src([
-    'node_modules/normalize.css/normalize.css',
-    'node_modules/slick-carousel/slick/slick.css',
-    'node_modules/animate.css/animate.css',
-])
-    .pipe(concat('_libs.scss'))
-    .pipe(gulp.dest('app/scss'))
-    .pipe(browserSync.reload({stream: true}));
+    return gulp.src([
+        'node_modules/normalize.css/normalize.css',
+        'node_modules/slick-carousel/slick/slick.css',
+        'node_modules/animate.css/animate.css',
+        'node_modules/@fortawesome/fontawesome-free/css/all.min.css',
+        'node_modules/@fortawesome/fontawesome-free/css/fontawesome.min.css',
+    ])
+        .pipe(concat('_libs.scss'))
+        .pipe(gulp.dest('app/scss'))
+        .pipe(browserSync.reload({stream: true}));
 });
 
 gulp.task('html', function () {
@@ -44,14 +46,14 @@ gulp.task('script', function () {
 });
 
 gulp.task('js', function () {
-   return gulp.src([
-       'node_modules/slick-carousel/slick/slick.js',
-       'node_modules/wow.js/dist/wow.js',
-   ])
-       .pipe(concat('libs.min.js'))
-       .pipe(uglify())
-       .pipe(gulp.dest('app/js'))
-       .pipe(browserSync.reload({stream: true}));
+    return gulp.src([
+        'node_modules/slick-carousel/slick/slick.js',
+        'node_modules/wow.js/dist/wow.js',
+    ])
+        .pipe(concat('libs.min.js'))
+        .pipe(uglify())
+        .pipe(gulp.dest('app/js'))
+        .pipe(browserSync.reload({stream: true}));
 });
 
 gulp.task('browser-sync', function() {
@@ -62,21 +64,21 @@ gulp.task('browser-sync', function() {
     });
 });
 
-gulp.task('export', async function () {
-   let buildHTML = gulp.src('app/**/*.html')
-       .pipe(gulp.dest('dist/'));
+gulp.task('export', function () {
+    let buildHTML = gulp.src('app/**/*.html')
+        .pipe(gulp.dest('dist/'));
 
-   let buildCSS = gulp.src('app/css/**/*.css')
-       .pipe(gulp.dest('dist/css'));
+    let buildCSS = gulp.src('app/css/**/*.css')
+        .pipe(gulp.dest('dist/css'));
 
-   let buildJS = gulp.src('app/js/**/*.js')
-       .pipe(gulp.dest('dist/js'));
+    let buildJS = gulp.src('app/js/**/*.js')
+        .pipe(gulp.dest('dist/js'));
 
-   let buildFonts = gulp.src('app/fonts/**/*.*')
-       .pipe(gulp.dest('dist/fonts'));
+    let buildFonts = gulp.src('app/fonts/**/*.*')
+        .pipe(gulp.dest('dist/fonts'));
 
-   let buildImg = gulp.src('app/img/**/*.*')
-       .pipe(gulp.dest('dist/img'));
+    let buildImg = gulp.src('app/img/**/*.*')
+        .pipe(gulp.dest('dist/img'));
 });
 
 gulp.task('watch', function () {
